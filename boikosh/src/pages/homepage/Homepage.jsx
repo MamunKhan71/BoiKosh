@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from '../../components/Header'
+import BookSection from './BookSection'
 
 const Homepage = () => {
     return (
-        <div>
+        <div className='space-y-12'>
             <Header />
+            <BookSection />
         </div>
     )
 }
