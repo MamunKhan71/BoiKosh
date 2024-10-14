@@ -8,7 +8,7 @@ const Navbar = () => {
     </>
     return (
         <>
-            <nav className="w-full flex relative justify-between items-center h-20">
+            <nav className="w-full flex relative justify-between items-center h-20 ">
                 {/* logo */}
                 <img className='w-48' src="https://res.cloudinary.com/dfwmhlhyo/image/upload/v1728887407/boikosh_cwrtzw.png" alt="" />
                 {/* end logo */}
