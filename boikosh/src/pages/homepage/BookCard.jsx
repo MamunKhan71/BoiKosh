@@ -1,5 +1,6 @@
 import { Book, DeleteIcon, DownloadCloud } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
 const BookCard = ({ bookData, isWishList }) => {
     const { id, title, formats, authors, subjects, download_count } = bookData
@@ -90,12 +91,12 @@ const BookCard = ({ bookData, isWishList }) => {
                                 <DownloadCloud size={16} /> Downloaded: <span>{download_count}</span>
                             </p>
                         </div>
-                        <button
-                            href=""
+                        <Link
+                            to={`/books/${id}`}
                             className="linear rounded-[20px] inline-flex gap-2 items-center bg-amber-500 px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-amber-600 active:bg-amber-600"
                         >
                             <Book size={16} /> Read This
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
