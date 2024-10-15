@@ -43,7 +43,7 @@ const BookSection = () => {
                     <>
                         <div className='grid grid-cols-4 gap-6'>
                             {books?.map(book =>
-                                <BookCard bookData={book} />
+                                <BookCard isWishList={false} bookData={book} />
                             )}
                         </div>
                         <div className='flex gap-6 items-center justify-center w-full'>

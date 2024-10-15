@@ -4,7 +4,7 @@ import BookSection from './BookSection'
 
 const Homepage = () => {
     return (
-        <div className='space-y-12'>
+        <div className='space-y-12 pb-24'>
             <Header />
             <BookSection />
         </div>
