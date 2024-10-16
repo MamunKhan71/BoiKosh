@@ -22,15 +22,14 @@ Check out the source code at [Boi Kosh GitHub](https://github.com/MamunKhan71/Bo
 
 This project is built using the following technologies:
 
-- **localforage**: "^1.10.0"
-- **lucide-react**: "^0.452.0"
-- **match-sorter**: "^6.3.4"
-- **react**: "^18.3.1"
-- **react-dom**: "^18.3.1"
-- **react-router-dom**: "^6.27.0"
-- **react-toastify**: "^10.0.6"
-- **sort-by**: "^1.2.0"
-
+- ```react```
+- ```lucide-react```
+- ```react-dom```
+- ```Tailwind CSS```
+- ```JavaScript```
+- ```react-router-dom```
+- ```react-toastify```
+- ```netlify```
 ## Installation
 
 To run this project locally, clone the repository and install the dependencies:
@@ -43,8 +42,6 @@ npm install
 ## Usage
 After installing the dependencies, you can start the development server:
 ```bash
-git clone https://github.com/MamunKhan71/BoiKosh.git
-cd BoiKosh
-npm install
+npm run dev
 ```
 
