@@ -12,21 +12,21 @@ const BookCard = ({ bookData, isWishList }) => {
         }
     }, [wishlist])
 
-    const handleWishlistClick = (book) => {
-
-        if (wishlist.includes(book)) {
-            const updatedWishlist = wishlist.filter(b => b !== book);
+    const handleWishlistClick = (bookId) => {
+        const currentWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        if (currentWishlist.includes(bookId)) {
+            const updatedWishlist = currentWishlist.filter(b => b !== bookId);
             localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-            setWishIcon(false)
-            window.location.reload()
+            setWishIcon(false);
             toast.success("Removed from the wishlist!");
         } else {
-            wishlist.push(book);
-            localStorage.setItem('wishlist', JSON.stringify(wishlist));
-            setWishIcon(true)
+            const updatedWishlist = [...currentWishlist, bookId]; // Add the new bookId
+            localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+            setWishIcon(true);
             toast.success("Added to the wishlist!");
         }
     }
+
     return (
         <div>
             <div className="!z-5 relative border rounded-[10px] bg-clip-border shadow-3xl flex flex-col w-full !p-4 bg-white">
