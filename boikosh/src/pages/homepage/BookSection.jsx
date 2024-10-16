@@ -66,7 +66,7 @@ const BookSection = () => {
 
 
     return (
-        <div className='space-y-12 w-full'>
+        <div className='space-y-12 w-full' id='bookSection'>
             <div className='space-y-4'>
                 <h4 className="text-4xl text-center font-bold text-primary ">
                     Available Books
