@@ -19,6 +19,7 @@ const BookCard = ({ bookData, isWishList }) => {
             localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
             setWishIcon(false);
             toast.success("Removed from the wishlist!");
+            window.location.reload()
         } else {
             const updatedWishlist = [...currentWishlist, bookId]; // Add the new bookId
             localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
