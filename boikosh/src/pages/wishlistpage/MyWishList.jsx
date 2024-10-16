@@ -3,34 +3,34 @@ import BookCard from '../homepage/BookCard'
 import Skeleton from '../../components/Skeleton'
 
 const MyWishList = () => {
-    const [getWishBooksId, setWishBooksId] = useState([])
-    const localStorageBooks = localStorage.getItem('wishlist')
-    const [loading, setLoading] = useState(true)
-    const [idString, setIdString] = useState("")
-    const [getWishBooks, setWishBooks] = useState([])
+    const [getWishBooks, setWishBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        if (localStorageBooks && localStorageBooks.length > 2) {
-            setWishBooksId(localStorageBooks);
-            const bookArray = localStorageBooks.replace(/[\[\]']/g, "").split(",");
-            const url = `https://gutendex.com/books?ids=${bookArray.join(",")}`;
-            setIdString(url);
-            fetch(url, {
-                method: "GET"
-            })
-                .then(res => res.json())
-                .then(data => {
-                    setWishBooks(data.results);
-                    setLoading(false);
-                })
-                .catch(error => console.error(error));
+        const localStorageBooks = localStorage.getItem('wishlist');
+        if (localStorageBooks) {
+            const bookIds = JSON.parse(localStorageBooks);
+            if (bookIds.length > 0) {
+                const url = `https://gutendex.com/books?ids=${bookIds.join(",")}`;
+                fetch(url, { method: "GET" })
+                    .then(res => res.json())
+                    .then(data => {
+                        setWishBooks(data.results);
+                        setLoading(false);
+                    })
+                    .catch(error => {
+                        console.error("Error fetching wishlist books:", error);
+                        setLoading(false);
+                    });
+            } else {
+                console.log("No books found in wishlist.");
+                setLoading(false);
+            }
         } else {
             console.log("No books found in localStorage.");
             setLoading(false);
         }
-    }, [localStorageBooks]);
-
-
-    console.log(getWishBooks);
+    }, []);
 
     return (
         <div className='space-y-12 pb-24'>
