@@ -42,7 +42,22 @@ const BookDetails = () => {
             toast.success("Added to the wishlist!");
         }
     }
-    console.log(book);
+    const getReadableFormat = (formatKey) => {
+        switch (formatKey) {
+            case 'text/html':
+                return 'HTML'
+            case 'application/epub+zip':
+                return 'EPUB'
+            case 'application/x-mobipocket-ebook':
+                return 'MOBI'
+            case 'text/plain; charset=us-ascii':
+                return 'Plain Text'
+            case 'application/octet-stream':
+                return 'ZIP'
+            default:
+                return 'Other'
+        }
+    }
 
     return (
         <>
@@ -55,8 +70,8 @@ const BookDetails = () => {
                     </div>
                     :
 
-                    <div className="flex py-24 flex-col lg:flex-row gap-6 lg:gap-12 w-full">
-                        <div className="flex flex-1 bg-[#1313130d] rounded-2xl p-16 items-center justify-center w-full">
+                    <div className="flex pt-8 pb-24 flex-col lg:flex-row gap-6 lg:gap-12 w-full">
+                        <div className="flex flex-1 h-full lg:h-[564px] bg-[#1313130d] rounded-2xl p-16 items-center justify-center w-full">
                             <img
                                 src={book?.formats?.['image/jpeg']} alt={`${book?.title} cover`}
                                 className="h-full lg:h-[464px] rounded-2xl" />
@@ -99,7 +114,28 @@ const BookDetails = () => {
                                     ))}
                                 </ul>
                             </div>
-                            {/* Add here the format or media links */}
+                            <div className="space-y-2">
+                                <p className="text-2xl font-semibold text-[#131313]">Available Formats:</p>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                                    {book?.formats && Object.keys(book.formats).map((formatKey) => (
+                                        <div key={formatKey} className="border border-gray-200 rounded-lg shadow-lg p-2 transition-all hover:shadow-xl hover:border-amber-500">
+                                            <div className="flex flex-col items-center space-y-2">
+                                                <p className="text-lg font-medium text-blue-600">{getReadableFormat(formatKey)}</p>
+                                                <a
+                                                    href={book.formats[formatKey]}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="bg-amber-600 text-white text-sm font-bold py-2 px-2 rounded-md hover:bg-amber-700 transition-colors duration-200"
+                                                >
+                                                    Download
+                                                </a>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+
                             <hr />
 
                             <div className="flex gap-4">
