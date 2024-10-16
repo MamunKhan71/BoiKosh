@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <footer className="bg-[#181C14]">
-            <div className="container py-12 mx-auto">
+            <div className="container py-6 lg:py-12 mx-auto px-3 lg:px-0">
                 <div className="flex flex-col items-center text-center">
                     <a href="#">
                         <img className='w-48' src="https://res.cloudinary.com/dfwmhlhyo/image/upload/v1728887407/boikosh_cwrtzw.png" alt="" />
@@ -15,7 +15,7 @@ const Footer = () => {
                 </div>
                 <hr className="my-10 border-gray-200 dark:border-gray-700" />
                 <div className="flex flex-col items-center sm:flex-row sm:justify-between">
-                    <p className="text-md text-white">
+                    <p className="text-md text-white text-center lg:text-left">
                         © Copyright 2024. All Rights Reserved by Md. Mamun with love for <span className='font-bold text-amber-400'>ZeptoApps!</span>
                     </p>
                     <div className="flex mt-3 -mx-2 sm:mt-0">

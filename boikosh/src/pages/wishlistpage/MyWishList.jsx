@@ -43,11 +43,11 @@ const MyWishList = () => {
                 </h4>
             </div>
             {
-                loading ? <div className='grid grid-cols-4 gap-6'>
+                loading ? <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
                     {
                         ...Array(1, 2, 3, 4).map(book => <Skeleton />)
                     }
-                </div> : <div className='grid grid-cols-4 gap-6'>
+                </div> : <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
                     {
                         getWishBooks?.map(book => <BookCard isWishList={true} bookData={book} />)
                     }

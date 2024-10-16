@@ -116,7 +116,7 @@ const BookDetails = () => {
                             </div>
                             <div className="space-y-2">
                                 <p className="text-2xl font-semibold text-[#131313]">Available Formats:</p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                                <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                                     {book?.formats && Object.keys(book.formats).map((formatKey) => (
                                         <div key={formatKey} className="border border-gray-200 rounded-lg shadow-lg p-2 transition-all hover:shadow-xl hover:border-amber-500">
                                             <div className="flex flex-col items-center space-y-2">

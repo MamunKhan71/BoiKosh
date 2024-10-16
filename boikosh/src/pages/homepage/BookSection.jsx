@@ -100,7 +100,7 @@ const BookSection = () => {
             </div>
 
             {isLoading ? (
-                <div className='grid grid-cols-4 gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
                     {Array(32).fill(0).map((_, index) => (
                         <Skeleton key={index} />
                     ))}
@@ -108,7 +108,7 @@ const BookSection = () => {
             ) : (
                 <>
                     <div
-                        className={`grid grid-cols-4 gap-6 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                     >
                         {searchedBooks?.map((book) => (
                             <BookCard key={book.id} isWishList={false} bookData={book} />
